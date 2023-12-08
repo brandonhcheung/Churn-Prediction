@@ -1,20 +1,22 @@
 # Churn-Prediction
 
-Introduction
+**Introduction**
+
 This project analyzed customer data from a multinational bank to predict customer churn. For some context, churn is when a customer decides to leave or unsubscribe from the company and is very harmful as it directly affects the profits of the company. Thus, it is the goal of every company to reduce churn, as maintaining customers is always easier and more efficient than obtaining new ones. The audience of our project is any bank that is losing customers due to churn and the overall goal of our project is to identify key drivers of churn to guide customer retention initiatives.
 
-Data Description
+**Data Description**
+
 The dataset we chose was a public dataset found on Kaggle.com called Bank Customer Churn dataset. The data included thousands of rows of customer data for account holders at a multinational bank. During pre-processing, we identified and deleted any rows with missing or corrupt data and excluded certain features we felt were useless. After we finished data cleaning, we chose variables based on the NA values, categorical and numerical variables, and its scaling. We did all this with the ETL method.
-Methodology
+
+**Methodology**
+
 After cleaning and processing the data and choosing six variables that we believed had the most effect on churn, positive and negative. We chose to use the MLP classification model to predict the churn in our dataset, as it is common and effective in churn modeling. We split our dataset into 60% train and 40% test sets and tested the MLP classifier model on both to reach an accuracy of 80.143%. 
 We used credit scores because we believed that customers with better credit scores indicate financial stability, which makes it less likely for them to face sudden financial crises that could lead them to switch or leave the bank. We used age because we believed that younger customers may prefer certain features different than those that older customers like and could be a reason why they switch banks. For example, younger customers may prefer online banking methods and could switch to a bank with more online features and older customers may prefer more traditional methods and could lead them to switch to more traditional banks. We used tenure because we believed that the amount of time that one has been a customer of the bank could reflect their loyalty with the bank which could play a part in them deciding to stay or leave. We used balance because we believed that the amount of money one has in their bank account could demonstrate how much they trust the bank and if they plan on staying or changing banks. We used estimated salary because we believed that this specific bank could be intended for people of a certain salary range, so those with a higher or lower salary could feel inclined to leave since the bank is not catered to them. We used points earned because we believed that the amount of points one has earned with a bank could show how involved they are with the bank and could be an incentive to stay.
 	Our dataset was inherently biased, as there were significantly more customers who did not churn than those who did churn. Thus, our model should have been skewed in that customers who did churn were much more uncommon and therefore a lot harder to predict. Thus, we can assume that our model classification accuracy can be misleading and requires a confusion matrix in order to figure out what kinds of errors the model is dealing with and how accurate it truly is. The confusion matrix pasted below depicts the prediction summary in a two by two matrix. It compares the predictions made by the model to the truth and consists of four main metrics: True Positives, False Positives, True Negatives, and False Negatives. True positives are instances that are positive and were predicted correctly as positive by the model. False positives are instances that are negative but were predicted incorrectly as positive by the model. True negatives are instances that are negative and were predicted correctly as negative by the model. False negatives are instances that are positive but were predicted incorrectly as negative by the model. The confusion matrix below depicts that there are a good number of true positives, but there are zero true negatives, which is indicative that there is an extremely imbalanced dataset that is causing the model to always predict one outcome. 
 
+**Results**
 
-
-Results
 Analysis of key drivers and trends reveals some interesting insights. Customers with better credit scores, indicating financial stability, are less likely to face sudden financial crises that could cause them to switch banks. Younger customers may prefer different features than older customers, leading to churn if the bank cannot meet diverging preferences over time through segmentation and targeting. The amount of time a customer has been with the bank reflects loyalty, with longer-tenured customers less inclined to churn than newer ones who are more unknown entities.
-
 Counterintuitively, customers with smaller account balances demonstrate lower churn rates than those with larger balances. This trend merits deeper investigation through additional modeling and analysis to clarify the underlying mechanics. Estimated salary ranges may also guide customer targeting and thus churn proneness if the bank focuses specifically on certain income strata. Finally, those earning mid-tier reward points between 500-600 points have a slightly decreased likelihood to churn compared to the 700-800 point segment, indicating that engagement initiatives matter for customer retention.
 
 Across the analysis, no significant correlations were found between churn and estimated salary. The contradictory trends uncovered between account balances and churn probabilities will require supplemental scrutiny through further examination of potential explanatory variables.
@@ -27,7 +29,8 @@ Our findings revealed tenure does demonstrate decreased churn for longer-tenured
 
 We believe several key trends around age, tenure, account balances and reward points have generalized applicability for customer churn more broadly. The contradictions around account balances in particular may translate, requiring further scrutiny across industries. However, variables like credit scores and salaries are much more context-specific to financial services. The granularity needed for segmentation and targeting also likely differs significantly across various consumer services. Extensive additional analysis would be needed to confirm wider applicability. But foundational relationships likely apply concerning loyalty over time and demonstrating ongoing value.
 
-Conclusion
+**Conclusion**
+
 The analysis uncovered some intriguing findings but is constrained by the 80% accuracy of the MLP model and inherent biases in the dataset and sampling. A key limitation is that our confusion matrix shows no true negatives, meaning the model is only able to predict "yes" for churn risk and cannot accurately predict "no". This significantly impacts the model's ability to correctly identify customers not at risk of churning.
 
 Our proposed solution is to focus retention initiatives on high churn risk groups identified based on age, account balances, and rewards points trends. This allows a targeted approach to mitigate churn impacts. We selected this solution given the actionable insights uncovered around these key variables in the analysis.
